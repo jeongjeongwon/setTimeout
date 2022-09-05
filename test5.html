@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <style>
+    body{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    let body = document.body
+
+    const button = document.createElement('button')
+    body.appendChild(button)
+    button.style.width = "100px"
+    button.style.height = "100px"
+
+    let root = document.getElementById('root')
+    root.style.backgroundColor = 'skyblue'
+    root.style.width = '300px'
+    root.style.height = '0px'
+
+    rotateValue = 0
+    let size = 0
+    button.addEventListener('click', function() {
+      let time = setInterval(function() {
+        size++
+        root.style.height = `${size}px`
+        if(size === 300){
+          clearInterval(time)
+        }
+
+        if(size === 600){
+          clearInterval(time)
+          let rotateAni = setInterval(() => {
+            rotateValue++
+            
+          }, 16);
+        }
+      }, 16)
+    })
+  </script>
+</body>
+</html>

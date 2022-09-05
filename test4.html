@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0px; box-sizing: border-box; padding: 0;}
+    #root{
+      width: 100vw;
+      height: 100vh;
+      background-color: dimgray;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <section id="target"></section>
+  </div>
+
+  <script>
+    const target = document.getElementById('target')
+    let size = 0
+    target.style.width = size + 'px'
+    target.style.height = size + 'px'
+    target.style.backgroundColor = 'skyblue'
+
+    let layout = setInterval(function() {
+      size++
+      target.style.width = (size) + 'px'
+      target.style.height = (size) + 'px'
+      if(size === 1000){
+        clearInterval(layout)
+      }
+    }, 16)
+  </script>
+</body>
+</html>
