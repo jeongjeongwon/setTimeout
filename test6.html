@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById('root')
+    let size = 0;
+    const color = ["dimgray", 'gray', 'skyblue', 'sliver', 'darkcyan', 'steelblue', 'azure']
+    let count = 0;
+    let layout = setInterval(() => {
+      size++
+      root.style.width = `${size}px`
+      root.style.height = `${size}px`
+      root.style.backgroundColor = 'skyblue'
+
+      for(let i = 0; i < color.length; i++){
+        count++
+        if(count === 50){
+          root.style.backgroundColor = color[i]
+          return count = 0;
+        }
+      }
+
+      if(size === 500){
+        clearInterval(layout)
+      }
+    }, 16);
+
+  </script>
+</body>
+</html>
